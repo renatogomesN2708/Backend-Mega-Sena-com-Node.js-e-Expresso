@@ -22,7 +22,7 @@ async function obterResultados() {
 }
 
 // 📌 Último resultado
-app.get('/ultimo-resultado', async (req, res) => {
+app.get('/ultimos-resultados', async (req, res) => {
   try {
     const { rows } = await pool.query(
       'SELECT * FROM resultados ORDER BY data DESC LIMIT 1'
@@ -33,6 +33,7 @@ app.get('/ultimo-resultado', async (req, res) => {
     res.status(500).json({ error: 'Erro ao obter último resultado' });
   }
 });
+
 
 // 🔥 Números mais sorteados (quentes)
 app.get('/numeros-quentes', async (req, res) => {
